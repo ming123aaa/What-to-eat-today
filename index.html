@@ -126,9 +126,9 @@ style="background-image: url('ranran.jpg'); background-size: cover; background-r
             <div class="loading-spinner"></div>
         </div>
         <div class="menu-container" id="menuContainer" style="display: none;">
-            <h1>今天吃什么</h1>
-            <p id="menu" style="color: #fff;"></p>
-            <p class="refresh-button" id="refreshButton">换一个</p>
+            <h1 style="font-size: 50px;">今天吃什么</h1>
+            <p id="menu" style="color: #fff; font-size: 30px;"></p>
+            <p class="refresh-button" id="refreshButton" style="font-size: 30px;">吃点别的</p>
         </div>
    
    
@@ -154,7 +154,7 @@ style="background-image: url('ranran.jpg'); background-size: cover; background-r
             const link = randomRecipe.link;
             const img_path = randomRecipe.img_path;
 
-            menuElement.innerHTML = ` 菜名：${title}<br> <img src="${img_path}"/> <br> 链接：<a href="${link}" target="_blank">${link}</a>   `;
+            menuElement.innerHTML = ` 菜名：${title}<br>  <br> 链接：<a href="${link}" target="_blank">${link}</a>   `;
 
 
         }
