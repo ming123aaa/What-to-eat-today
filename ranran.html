@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>今天吃什么?</title>
+    <title>嘉然今天吃什么?</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,7 +45,7 @@
         .menu-container {
             background-color: rgba(255, 255, 255, 0.0);
             border-radius: 10px;
-
+        
             padding: 20px;
             text-align: center;
             animation: fadeInUp 0.5s ease-in-out;
@@ -113,31 +113,25 @@
 </head>
 
 <body
-    style="background-image: url('https://img.xjh.me/random_img.php?return=302'); background-size: cover; background-repeat: no-repeat;">
-
-    <div style=" background-color: rgba(0, 0, 0, 0.5);  position: fixed; 
+style="background-image: url('ranran.jpg'); background-size: cover; background-repeat: no-repeat;"
+>
+ <div style=" background-color: rgba(0, 0, 0, 0.5);  position: fixed; 
  top: 0;
  left: 0;
  width: 100vw; 
  height: 100vh;  z-index: -1;"></div>
 
 
-    <div class="loading-container" id="loadingContainer">
-        <div class="loading-spinner"></div>
-    </div>
-    
-  
-    <div class="menu-container" id="menuContainer" style="display: none;">
-        <iframe height="25" src="https://widget.tianqiapi.com/?style=tv&skin=pitaya&color=fff" style="border: none; 
-        "  width="300"
-           ></iframe>
-        <h1 style="font-size: 50px;">今天吃什么</h1>
-        <p id="menu" style="color: #fff; font-size: 30px;"></p>
-        <p class="refresh-button" id="refreshButton" style="font-size: 30px;">吃点别的</p>
-       
-    </div>
- 
-
+        <div class="loading-container" id="loadingContainer">
+            <div class="loading-spinner"></div>
+        </div>
+        <div class="menu-container" id="menuContainer" style="display: none;">
+            <h1 style="font-size: 50px;">今天吃什么</h1>
+            <p id="menu" style="color: #fff; font-size: 30px;"></p>
+            <p class="refresh-button" id="refreshButton" style="font-size: 30px;">吃点别的</p>
+        </div>
+   
+   
     <script src="menu.js"></script>
     <script>
         const loadingContainer = document.getElementById('loadingContainer');
