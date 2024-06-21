@@ -72,15 +72,24 @@
         }
 
         .refresh-button {
-            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
             font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            /* 蓝色背景 */
+            border: none;
+            border-radius: 4px;
+            /* 圆角 */
             cursor: pointer;
-            color: #3498db;
-            transition: color 0.3s ease-in-out;
+            /* 鼠标悬停时变为小手 */
+            transition: background-color 0.3s ease;
+            /* 平滑的背景色过渡 */
         }
 
         .refresh-button:hover {
-            color: #e74c3c;
+            background-color: #0056b3;
+            /* 鼠标悬停时背景色变暗 */
         }
 
         @keyframes fadeInUp {
@@ -125,18 +134,18 @@
     <div class="loading-container" id="loadingContainer">
         <div class="loading-spinner"></div>
     </div>
-    
-  
+
+
     <div class="menu-container" id="menuContainer" style="display: none;">
         <iframe height="25" src="https://widget.tianqiapi.com/?style=tv&skin=pitaya&color=fff" style="border: none; 
-        "  width="300"
-           ></iframe>
+        " width="300"></iframe>
         <h1 style="font-size: 50px;">今天吃什么</h1>
         <p id="menu" style="color: #fff; font-size: 30px;"></p>
         <p class="refresh-button" id="refreshButton" style="font-size: 30px;">吃点别的</p>
-       
+        <p id="dujitang" style="color: #fff; font-size: 30px;"> </p>
+
     </div>
- 
+
 
     <script src="menu.js"></script>
     <script>
@@ -145,6 +154,7 @@
         const menuElement = document.getElementById('menu');
         const refreshButton = document.getElementById('refreshButton');
         const picture = document.getElementById('picture');
+        const dujitang = document.getElementById('dujitang');
         function loadRandomMenu() {
             loadingContainer.style.display = 'flex';
             menuContainer.style.display = 'none';
@@ -166,9 +176,17 @@
         }
 
         refreshButton.addEventListener('click', loadRandomMenu);
-
         // 初始加载菜单
         loadRandomMenu();
+        fetch("https://api.btstu.cn/yan/api.php").then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+            .then(data => dujitang.innerHTML = data)
+
+
     </script>
 </body>
 
