@@ -155,7 +155,19 @@
         const refreshButton = document.getElementById('refreshButton');
         const picture = document.getElementById('picture');
         const dujitang = document.getElementById('dujitang');
+        function loadText(){
+            fetch("https://api.btstu.cn/yan/api.php").then(response => {
+            loadRandomMenu()
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+            .then(data => dujitang.innerHTML = data)
+        }
+
         function loadRandomMenu() {
+           
             loadingContainer.style.display = 'flex';
             menuContainer.style.display = 'none';
 
@@ -171,20 +183,15 @@
             const img_path = randomRecipe.img_path;
 
             menuElement.innerHTML = ` 菜名：${title}<br>  <br> 链接：<a href="${link}" target="_blank">${link}</a>   `;
-
+           
 
         }
 
-        refreshButton.addEventListener('click', loadRandomMenu);
+
+        refreshButton.addEventListener('click', loadText);
         // 初始加载菜单
-        loadRandomMenu();
-        fetch("https://api.btstu.cn/yan/api.php").then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.text();
-        })
-            .then(data => dujitang.innerHTML = data)
+        loadText();
+       
 
 
     </script>
