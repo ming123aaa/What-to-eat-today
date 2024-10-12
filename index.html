@@ -156,7 +156,7 @@
         const picture = document.getElementById('picture');
         const dujitang = document.getElementById('dujitang');
         function loadText(){
-            fetch("https://api.btstu.cn/yan/api.php").then(response => {
+            fetch("https://api.vvhan.com/api/text/joke").then(response => {
             loadRandomMenu()
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -195,6 +195,7 @@
 
 
     </script>
+    <script src="https://api.vvhan.com/api/script/snow"></script>
 </body>
 
 </html>
